@@ -133,7 +133,7 @@ hurdleBoot_fn <- function(X_dat, idx_dat) {
             )  # Set sanity checks against argument incongruency
   
   
-  hurdle_idx.mdl <- tryCatch(hurdle(hurdleModel, data=X_dat[idx_dat, ], 
+  hurdleBoot_mdl <- tryCatch(hurdle(hurdleModel, data=X_dat[idx_dat, ], 
                                     weights=NULL, offset=NULL, 
                                     dist=positiveHurdleModel, zero.dist="binomial", link="logit", 
                                     control=hurdle.control(maxit=1e3, trace=FALSE)), 
@@ -155,7 +155,7 @@ hurdleBoot_fn <- function(X_dat, idx_dat) {
   
   yPredict_arr <- sapply(XPredict_ls, 
                          FUN=function(dat) 
-                           predict(hurdle_idx.mdl, 
+                           predict(hurdleBoot_mdl, 
                                    newdata=dat, 
                                    type="response")
                          )  # Derive 2d-array of predicted counts by "Case", "Intervention" status
@@ -175,8 +175,8 @@ hurdleBoot_fn <- function(X_dat, idx_dat) {
   }
 
 
-tauBoot_out <- boot(test_dat, statistic=hurdleBoot_fn, R=bootSampleSize, 
-                    sim="ordinary", stype="i", strata=test_dat$Intervention
+tauBoot_out <- boot(data_dat, statistic=hurdleBoot_fn, R=bootSampleSize, 
+                    sim="ordinary", stype="i", strata=data_dat$Intervention
                     )  # Derive stratified bootstrap sample of average predicted costs by "Intervention" levels
 
 
