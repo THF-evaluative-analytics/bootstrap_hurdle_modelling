@@ -11,7 +11,7 @@
 
 - Provided code will fit a user-defined Hurdle model to a pre-specified count outcome, a set of covariates and a binary intervention assignment indicator, bootstrap resulting effect estimates to obtain corresponding confidence intervals and a p-value for the null hypothesis of no intervention impact.  All effect estimates are averaged across the distribution of all covariates to remove their dependency on any covariate value, thus ensuring their meaningful interpretation.
 
-- GLMs for the zero (modelled via Logistic regression) and positive (represented by either a Poisson, Negative Binomial or Geometric regression) parts making up the Hurdle model are separately fitted via maximum likelihood; 95% confidence intervals around effect estimates are subsequently built via either accelerated bias-corrected or percentile-based boostrap.
+- GLMs for the zero (modelled via Logistic regression) and positive (represented by either a Poisson, Negative Binomial or Geometric regression) parts making up the Hurdle model are separately fitted via maximum likelihood; 95% confidence intervals around effect estimates are subsequently built via either bias-corrected accelerated or percentile-based boostrap.
 
 
 ## Data source
