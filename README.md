@@ -44,7 +44,7 @@ Describe the way in which the code can be used.
 
 --  A. C. Cameron and P. K. Trivedi.  Regression Analysis of Count Data.  Econometric Society Monographs.  Cambridge University Press, NY, 2nd edition, 2013.  doi:  10.1007/978-1-4757-3692-2
 
---  B. Efron and R. J. Tibshirani.  An Introduction to the Bootstrap.  Mono-graphs on Statistics and Applied Probability.  Springer Science+Business Media, New York, NY, 1993.  doi:  10.1007/978-1-4899-4541-9
+--  B. Efron and R. J. Tibshirani.  An Introduction to the Bootstrap.  Monographs on Statistics and Applied Probability.  Springer Science+Business Media, New York, NY, 1993.  doi:  10.1007/978-1-4899-4541-9
 
 --  H. Herwartz, N. Klein, and C. Strumann.  Modelling Hospital Admission  and  Length  of  Stay  by  Means  of  Generalised  Count  Data  Models.  Journal of Applied Econometrics, 31(6):1159–1182, 2016.  doi:10.1002/jae.2454
 
