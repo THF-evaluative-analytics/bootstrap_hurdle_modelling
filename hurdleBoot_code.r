@@ -185,30 +185,30 @@ tauBoot_out <- boot(data_dat, statistic=hurdleBoot_fn, R=bootSampleSize,
 ## bootstrap estimates ##
 #########################
 
-tauBoot <- vector("numeric", 
-                  length=4)  # Initialise vector of bootstrap effect estimates by "Inference" type
+tauBoot_vec <- vector("numeric", 
+                      length=4)  # Initialise vector of bootstrap effect estimates by "Inference" type
 
-names(tauBoot) <- c("Point estimate", 
-                    paste(c("Lower", "Upper"), 
-                          "bound", 
-                          sep=" "), 
-                    "P-value"
-                    )  # Name entries of bootstrap effect estimates vector
+names(tauBoot_vec) <- c("Point estimate", 
+                        paste(c("Lower", "Upper"), 
+                              "bound", 
+                              sep=" "), 
+                        "P-value"
+                       )  # Name entries of bootstrap effect estimates vector
 
 
-tauBoot["Point estimate"] <- tauBoot_out$t0  # Set bootstrap effect point estimate
+tauBoot_vec["Point estimate"] <- tauBoot_out$t0  # Set bootstrap effect point estimate
 
-tauBoot[paste(c("Lower", "Upper"), "bound", sep=" ")] <- boot.ci(tauBoot_out, 
-                                                                 conf=.95, 
-                                                                 type=bootCI, 
-                                                                 index=1
-                                                                 )[[4]][4:5]  # Set 95% bootstrap CI
+tauBoot_vec[paste(c("Lower", "Upper"), "bound", sep=" ")] <- boot.ci(tauBoot_out, 
+                                                                     conf=.95, 
+                                                                     type=bootCI, 
+                                                                     index=1
+                                                                    )[[4]][4:5]  # Set 95% bootstrap CI
 
 
 tauBoot_lnCentred_vec <- scale(log(tauBoot_out$t), 
                                center=TRUE, scale=FALSE
                                )  # Derive vector of centred bootstrap log-effect estimates
 
-tauBoot["P-value"] <- mean(abs(tauBoot_lnCentred_vec) 
-                           > abs(log(tauBoot_out$t0))
-                           )  # Derive approximate bootstrap effect p-value
+tauBoot_vec["P-value"] <- mean(abs(tauBoot_lnCentred_vec) 
+                               > abs(log(tauBoot_out$t0))
+                              )  # Derive approximate bootstrap effect p-value
