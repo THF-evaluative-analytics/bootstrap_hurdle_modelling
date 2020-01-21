@@ -12,12 +12,6 @@
 #                                 #
 # Author: Stefano Conti           #
 # (e. stefano.conti@nhs.net)      #
-#                                 #
-# ------------------------------- #
-#                                 #
-# Coding start date: 07.01.20     #
-#                                 #
-# Last revision date: 09.01.20    #
 ###################################
 
 
@@ -25,7 +19,7 @@
 ## Preamble ##
 ##############
 
-rm(list=ls())  # Clear work-space
+# rm(list=ls())  # Clear work-space
 
 
 library(boot)  # Load library required for bootstrap routines
